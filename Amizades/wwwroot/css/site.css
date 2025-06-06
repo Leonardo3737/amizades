@@ -19,7 +19,16 @@ html {
 
 body {
     margin-bottom: 60px;
-    background-color: #FBFDFD;
+    background-color: #F8FAFC;
+    color: #334155;
+}
+
+a.no-style {
+    text-decoration: none;
+}
+
+a:hover {
+    color: #CC3333;
 }
 
 .without-border {
@@ -40,42 +49,41 @@ body {
     background-color: transparent;
 }
 
-.my-btn.active {
-    color: #006494;
-    border: 1px solid #006494;
-}
+    .my-btn.active {
+        color: #1d3347;
+        border: 1px solid #1d3347;
+    }
 
 .my-btn-primary {
-    background-color: #006494;
+    background-color: #1d3347;
     color: #E8F1F2;
 }
 
-.my-btn-primary:hover {
-    background-color: #00557E;
-}
+    .my-btn-primary:hover {
+        background-color: #13293d;
+    }
 
 .my-btn-outline-primary {
-    color: #006494;
-    border: 1px solid #006494;
+    color: #1d3347;
+    border: 1px solid #1d3347;
 }
 
-.my-btn-outline-primary:hover {
-    background-color: #00557E20;
-}
+    .my-btn-outline-primary:hover {
+        background-color: #13293d20;
+    }
 
 .my-btn-outline-danger {
     border: 1px solid #CC3333;
     color: #CC3333;
 }
 
-.my-btn-outline-danger:hover {
-    background-color: #CC333320;
-}
+    .my-btn-outline-danger:hover {
+        background-color: #CC333320;
+    }
 
 .my-btn-link {
-    color: #006494;
+    color: #1d3347;
 }
-
-.my-btn-link:hover {
-    color: #00557E;
-}
+    .my-btn-link:hover {
+        color: #13293d;
+    }
