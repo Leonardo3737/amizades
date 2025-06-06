@@ -1,0 +1,9 @@
+﻿@model Amizades.ViewModels.CreatePublicationViewModel
+
+<form asp-controller="Publication" asp-action="Create" method="post" class="publication-form publication-card-background">
+    <textarea class="without-border publication-textarea"
+              placeholder="O que você está pensando?"
+              id="publicationText"
+              asp-for="PublicationText"></textarea>
+    <input class="without-border my-btn my-btn-primary" type="submit" value="Publicar" />
+</form>

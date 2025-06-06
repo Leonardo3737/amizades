@@ -1,0 +1,74 @@
+﻿.publication-body {
+    padding: 0 36px;
+}
+
+.publication-title {
+    font-weight: 600;
+    font-size: x-large;
+    color: #13293D;
+    padding-bottom: 10px;
+    margin-bottom: 0;
+    border-bottom: 0.5px solid #13293D50;
+}
+
+.publication-card-background {
+    background-color: #EFF6F7;
+}
+
+.publication-form {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    border-bottom: 0.5px solid #13293D50;
+    padding: 12px 4px;
+}
+
+.publication-textarea {
+    width: 100%;
+    resize: none;
+    max-height: 100px;
+    color: #13293D;
+    font-weight: 500;
+    background-color: transparent;
+}
+
+.create-publication-btn {
+    align-self: end;
+    font-weight: 600;
+    background-color: #006494;
+    padding: 6px 14px;
+    border-radius: 10px;
+    color: #E8F1F2;
+}
+
+.publication-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.publication-username {
+    font-weight: 700;
+    font-size: medium;
+    margin-bottom: 0;
+}
+
+.publication-date {
+    font-weight: 600;
+    font-size: medium;
+    color: dimgray;
+    margin-bottom: 4px;
+}
+
+.publication-text {
+    font-weight: 400;
+    font-size: large;
+    color: black;
+    margin-bottom: 0;
+}
+
+.publication-card {
+    padding: 10px 0;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+}

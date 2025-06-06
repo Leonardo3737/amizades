@@ -1,0 +1,81 @@
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    background-color: #FBFDFD;
+}
+
+.without-border {
+    outline: none;
+    border: none;
+    box-shadow: none;
+}
+
+.my-btn {
+    outline: none;
+    border: none;
+    box-shadow: none;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background-color: transparent;
+}
+
+.my-btn.active {
+    color: #006494;
+    border: 1px solid #006494;
+}
+
+.my-btn-primary {
+    background-color: #006494;
+    color: #E8F1F2;
+}
+
+.my-btn-primary:hover {
+    background-color: #00557E;
+}
+
+.my-btn-outline-primary {
+    color: #006494;
+    border: 1px solid #006494;
+}
+
+.my-btn-outline-primary:hover {
+    background-color: #00557E20;
+}
+
+.my-btn-outline-danger {
+    border: 1px solid #CC3333;
+    color: #CC3333;
+}
+
+.my-btn-outline-danger:hover {
+    background-color: #CC333320;
+}
+
+.my-btn-link {
+    color: #006494;
+}
+
+.my-btn-link:hover {
+    color: #00557E;
+}

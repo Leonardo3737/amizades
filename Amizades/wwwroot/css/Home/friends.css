@@ -1,0 +1,35 @@
+﻿.user-info-card {
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 10px 2px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 12px 4px;
+    width: 100%;
+}
+
+.friend-card {
+    background-color: #E8F1F2; /* Mesmo tom das publicações */
+    padding: 12px 16px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); /* Leve sombra inferior */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.remove-friend-btn {
+    background-color: transparent;
+    border: 1px solid #C33;
+    color: #C33;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.remove-friend-btn:hover {
+    background-color: #FDEAEA;
+}

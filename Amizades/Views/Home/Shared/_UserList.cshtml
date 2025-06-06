@@ -1,0 +1,114 @@
+﻿@model List<Amizades.ViewModels.FriendshipViewModel>
+@{
+    var hasNextPage = (bool)(ViewData["HasNextPage"] ?? true);
+    ViewData["ShowFriends"] = false;
+    ViewData["ShowInviteButton"] = true;
+    var type = ViewData["type"];
+}
+@foreach (var user in Model)
+{
+    <div id="user-@user.FriendshipId-@type" class="friend-card">
+        <div class="w-100 d-flex justify-content-between align-items-center">
+            <div>
+                <h5 class="">@user.Username</h5>
+                <h6 class="text-body-secondary">@user.Name</h6>
+
+            </div>
+
+            <div>
+                @if (user.Status != Amizades.Models.Enums.FriendshipStatus.Pending && type == "SUGESTION")
+                {
+                    <button id="invite-btn-@user.UserId" class="my-btn my-btn-outline-primary my-auto" onclick="sendingInvite(@user.UserId)">
+                        Enviar Convite
+                    </button>
+                }
+                else if (type == "REQUEST")
+                {
+                    <button class="my-btn my-btn-outline-primary my-auto" onclick="acceptInvite(@user.FriendshipId)">
+                        Aceitar
+                    </button>
+                    <button class="my-btn my-btn-outline-danger" onclick="removeFriend(@user.FriendshipId, 'REQUEST')">
+                        Recusar
+                    </button>
+                }
+                else if (type == "FRIEND")
+                {
+                    <button class="my-btn my-btn-outline-danger" onclick="removeFriend(@user.FriendshipId, 'FRIEND')">
+                        Excluir
+                    </button>
+                }
+            </div>
+        </div>
+    </div>
+}
+@if (!hasNextPage)
+{
+    <div id="hide-load-more-@type"></div>
+}
+
+<script>
+    function sendingInvite(userId) {
+        $.post(`/api/friendship/invite/${userId}`, () => {
+            const $btn = $(`#invite-btn-${userId}`);
+            $btn.text("Enviado").prop("disabled", true);
+        });
+    }
+
+    function acceptInvite(friendShipId) {
+        $.ajax({
+            url: `/api/friendship/accept/${friendShipId}`,
+            method: "PATCH",
+            success: () => {
+                const $userCard = $(`#user-${friendShipId}-REQUEST`);
+                const $clone = $userCard.clone();
+                const $friendsContainer = $('#friends-container');
+                const currentUserCount = changeUserCount(1);
+
+                if (currentUserCount === 1) {
+                    $friendsContainer.html("");
+                }
+
+                const newId = `user-${friendShipId}-FRIEND`;
+                $clone.attr("id", newId);
+
+                const $button = $clone.find("button");
+                console.log($button)
+                if ($button.length) {
+                    $button.eq(1).text("Excluir").off("click").on("click", () => {
+                        removeFriend(friendShipId);
+                    });
+                }
+
+                $friendsContainer.append($clone);
+                $button.eq(0).remove()
+                $userCard.remove();
+            }
+        });
+    }
+
+    function removeFriend(friendShipId, type) {
+        $.ajax({
+            url: `/api/friendship/remove/${friendShipId}`,
+            method: "DELETE",
+            success: () => {
+                const $userCard = $(`#user-${friendShipId}-${type}`);
+                if(type === "FRIEND") {
+                    const currentUserCount = changeUserCount(-1);
+                }
+                $userCard.remove();
+            }
+        });
+    }
+
+    function changeUserCount(valueChange) {
+        const $friendCount = $('#friend-count');
+        const current = Number($friendCount.text());
+
+        if (!isNaN(current)) {
+            $friendCount.text(current + valueChange);
+        }
+
+        return current + valueChange;
+    }
+
+</script>

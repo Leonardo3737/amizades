@@ -1,0 +1,28 @@
+﻿@model Amizades.ViewModels.PaginationViewModel<Amizades.ViewModels.FriendshipViewModel>
+@{
+    ViewData["type"] = "SUGESTION";
+}
+<div class="d-flex flex-column gap-2 align-items-center">
+    <div id="suggestions-container" class="d-flex flex-column gap-2 align-items-center w-100">
+        @await Html.PartialAsync("./Shared/_UserList", Model.Items)
+    </div>
+    @if (Model.HasNextPage)
+    {
+        <button id="load-more-SUGESTION" class="btn btn-link" onclick="loadMoreSugestions()">Ver mais</button>
+    }
+</div>
+<script>
+    let suggestionPage = 1;
+
+    function loadMoreSugestions() {
+        $.get(`/api/Friendship/suggestion?page=${suggestionPage}`, (html) => {
+            suggestionPage++;
+            const $container = $('#suggestions-container');
+            $container.append(html);
+
+            if (html.includes('id="hide-load-more-SUGESTION"')) {
+                $('#load-more-SUGESTION').hide();
+            }
+        });
+    }
+</script>

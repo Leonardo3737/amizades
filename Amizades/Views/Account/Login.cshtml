@@ -1,0 +1,27 @@
+﻿@model Amizades.ViewModels.LoginViewModel
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+
+<h4 class="text-center">Login</h4>
+<form asp-action="Login">
+    <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+    <div class="form-group">
+        <label asp-for="Email" class="control-label"></label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Password" class="control-label"></label>
+        <input asp-for="Password" class="form-control" type="password" />
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+    <div class="form-group mt-3">
+        <input type="submit" value="Entrar" class="btn btn-primary w-100" />
+    </div>
+</form>
+<div class="mt-2">
+    <a asp-action="Cadastrar">Cadastrar</a>
+</div>

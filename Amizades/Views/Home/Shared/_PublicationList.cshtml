@@ -1,0 +1,18 @@
+﻿@model Amizades.ViewModels.PaginationViewModel<Amizades.ViewModels.PublicationViewModel>
+
+<div class="d-flex flex-column align-items-center overflow-auto px-2" style="max-height: 600px;">
+    <div id="friends-container" class="d-flex gap-2 flex-column align-items-center w-100">
+        @foreach (var publication in Model.Items)
+        {
+            <div class="publication-card publication-card-background w-100">
+                <div class="d-flex flex-column justify-content-between">
+                    <div class="publication-header">
+                        <h5 class="publication-username">@publication.AuthorUsername</h5>
+                        <p class="publication-date">@publication.CreatedAt.ToString("d 'de' MMMM 'às' HH:mm", new System.Globalization.CultureInfo("pt-BR"))</p>
+                    </div>
+                    <p class="publication-text">@publication.PublicationText</p>
+                </div>
+            </div>
+        }
+    </div>
+</div>
