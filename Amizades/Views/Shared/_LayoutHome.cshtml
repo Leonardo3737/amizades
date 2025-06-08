@@ -12,7 +12,19 @@
 <body class="d-flex align-items-center">
     <div class="my-container">
         <main role="main" class="pb-3">
-            @RenderBody()
+            <div class="row">
+                <div class="col-4 h-100 col-xxl-3 d-flex justify-content-center">
+                    @RenderSection("SidebarLeft", required: false)
+                </div>
+
+                <div class="publication-body col-4 h-100 col-xxl-6">
+                    @RenderBody()
+                </div>
+
+                <div class="col-4 h-100 col-xxl-3 d-flex justify-content-center">
+                    @RenderSection("SidebarRight", required: false)
+                </div>
+            </div>
         </main>
     </div>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

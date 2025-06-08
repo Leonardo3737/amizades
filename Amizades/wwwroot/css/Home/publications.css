@@ -1,26 +1,26 @@
 ﻿.publication-body {
-    padding: 0 36px;
+
 }
 
 .publication-title {
     font-weight: 600;
     font-size: x-large;
-    color: #13293D;
+    color: var(--font-color-primary);
     padding-bottom: 10px;
     margin-bottom: 0;
-    border-bottom: 0.5px solid #13293D50;
+    border-bottom: 0.5px solid var(--color-tertiary);
 }
 
 .publication-card-background {
-    background-color: #F1F5F9;
+    background-color: var(--color-primary);
 }
 
 .publication-form {
     display: flex;
     flex-direction: column;
     align-items: end;
-    border-bottom: 0.5px solid #13293D50;
-    padding: 12px 4px;
+    border-bottom: 0.5px solid var(--color-tertiary);
+    padding: 12px 8px;
 }
 
 .publication-textarea {
@@ -30,6 +30,7 @@
     color: #13293D;
     font-weight: 500;
     background-color: transparent;
+    padding: 2px 0;
 }
 
 .create-publication-btn {
@@ -46,16 +47,23 @@
     justify-content: space-between;
 }
 
+.publication-author-name {
+    font-weight: 600;
+    font-size: larger;
+    margin-bottom: 0;
+}
+
 .publication-username {
-    font-weight: 700;
+    font-weight: 600;
     font-size: medium;
     margin-bottom: 0;
+    color: #59677B;
 }
 
 .publication-date {
     font-weight: 600;
     font-size: medium;
-    color: dimgray;
+    color: #59677B;
     margin-bottom: 4px;
 }
 

@@ -7,7 +7,10 @@
             <div class="publication-card publication-card-background w-100">
                 <div class="d-flex flex-column justify-content-between">
                     <div class="publication-header">
-                        <h5 class="publication-username">@publication.AuthorUsername</h5>
+                        <div class="d-flex align-items-center gap-2">
+                            <h5 class="publication-author-name">@publication.AuthorName</h5>
+                            <h4 class="publication-username">@@@publication.AuthorUsername</h4>
+                        </div>
                         <p class="publication-date">@publication.CreatedAt.ToString("d 'de' MMMM 'às' HH:mm", new System.Globalization.CultureInfo("pt-BR"))</p>
                     </div>
                     <p class="publication-text">@publication.PublicationText</p>

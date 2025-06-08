@@ -1,3 +1,23 @@
+:root {
+    --color-primary: #EEECE8;
+    --color-primary-dark: #D4CFD4;
+    --font-color-primary: #23211A;
+    --color-secondary: #D4D0C4;
+    --color-secondary-dark: #BAB4A0;
+    --font-color-secondary: #23211A;
+    --color-tertiary: #484233;
+    --color-tertiary-dark: #23211A;
+    --font-color-tertiary: #F6F6F3;
+    --color-success: #2e7d32;
+    --color-danger: #c62828;
+    --color-warning: #f9a825;
+    --color-info: #0288d1;
+    --color-light: #f8f9fa;
+    --color-dark: #343a40;
+    --color-background: #F6F6F3;
+    --color-surface: #f1f3f5;
+}
+
 html {
     font-size: 14px;
 }
@@ -18,9 +38,9 @@ html {
 }
 
 body {
-    margin-bottom: 60px;
-    background-color: #F8FAFC;
-    color: #334155;
+    background-color: var(--color-background);
+    color: var(--font-color-primary);
+    height: 100dvh;
 }
 
 a.no-style {
@@ -55,22 +75,63 @@ a:hover {
     }
 
 .my-btn-primary {
-    background-color: #1d3347;
-    color: #E8F1F2;
+    background-color: var(--color-primary);
+    color: var(--font-color-primary);
 }
 
     .my-btn-primary:hover {
-        background-color: #13293d;
+        background-color: var(--color-primary-dark);
     }
 
 .my-btn-outline-primary {
-    color: #1d3347;
-    border: 1px solid #1d3347;
+    color: var(--color-primary);
+    border: 1px solid var(--color-primary);
 }
 
     .my-btn-outline-primary:hover {
-        background-color: #13293d20;
+        background-color: var(--color-primary-dark);
     }
+
+.my-btn-secondary {
+    background-color: var(--color-secondary);
+    color: var(--font-color-secondary);
+}
+
+    .my-btn-secondary:hover {
+        background-color: var(--color-secondary-dark);
+    }
+
+.my-btn-outline-secondary {
+    color: var(--color-secondary-dark);
+    border: 1px solid var(--color-secondary);
+}
+
+    .my-btn-outline-secondary:hover {
+        background-color: var(--color-secondary-dark);
+    }
+
+.my-btn-tertiary {
+    background-color: var(--color-tertiary);
+    color: var(--font-color-tertiary);
+}
+
+    .my-btn-tertiary:hover {
+        background-color: var(--color-tertiary-dark);
+    }
+
+.my-btn-outline-tertiary {
+    color: var(--color-tertiary);
+    border: 1px solid var(--color-tertiary);
+    background-color: var(--color-background);
+}
+
+    .my-btn-outline-tertiary:hover {
+        color: var(--color-background);
+        border: 1px solid var(--color-background);
+        background-color: var(--color-tertiary);
+    }
+
+
 
 .my-btn-outline-danger {
     border: 1px solid #CC3333;
@@ -87,3 +148,73 @@ a:hover {
     .my-btn-link:hover {
         color: #13293d;
     }
+
+.my-btn-sidebar {
+    outline: none;
+    border: none;
+    box-shadow: none;
+    font-weight: 600;
+    font-size: larger;
+    padding: 10px 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background-color: transparent;
+    color: var(--color-tertiary);
+    border-bottom: 1px solid #ffffff;
+}
+
+    .my-btn-sidebar:hover {
+        color: var(--color-background);
+        background-color: var(--color-tertiary);
+        border: 1px solid #ffffff;
+    }
+
+.my-container {
+    width: 100%;
+    padding-right: var(--bs-gutter-x, 0.75rem);
+    padding-left: var(--bs-gutter-x, 0.75rem);
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@media (min-width: 576px) {
+    .my-container {
+        max-width: 540px;
+    }
+}
+
+@media (min-width: 768px) {
+    .my-container {
+        max-width: 720px;
+    }
+}
+
+@media (min-width: 992px) {
+    .my-container {
+        max-width: 960px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .my-container {
+        max-width: 1140px;
+    }
+}
+
+@media (min-width: 1400px) {
+    .my-container {
+        max-width: 1320px;
+    }
+}
+
+@media (min-width: 1500px) {
+    .my-container {
+        max-width: 1420px;
+    }
+}
+
+@media (min-width: 1600px) {
+    .my-container {
+        max-width: 1520px;
+    }
+}

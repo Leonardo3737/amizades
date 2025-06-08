@@ -1,5 +1,5 @@
 ﻿.friend-card {
-    background-color: #E8F1F2; /* Mesmo tom das publicações */
+    background-color: var(--color-background); /* Mesmo tom das publicações */
     padding: 12px 16px;
     margin-bottom: 10px;
     border-radius: 8px;

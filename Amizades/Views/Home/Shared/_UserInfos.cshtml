@@ -2,19 +2,42 @@
 @{
 }
 
-<div class="user-info-body">
-    <div class="card-body flex-column gap-4 d-flex justify-content-between align-items-start">
-        <div class="user-info-card">
-            <h5 class="card-title">@Model.Username</h5>
-            <h6 class="card-subtitle mb-2 text-body-secondary">@Model.Name</h6>
-            <p class="card-text">
-                <span id="friend-count">@Model.Friends.Items.Count</span>
-                @(@Model.Friends.Items.Count == 1 ? "Amigo" : "Amigos")
-            </p>
+<div class="sidebar-body">
+    <div class="card-body flex-column d-flex justify-content-between align-items-start">
+        <div class="user-info-card ">
+            @* <img src="~/img/profile.png" class="d-block" style="width: 5rem; height: 5rem;" alt="Alternate Text" /> *@
+            <h5 class="card-title">@Model.Name</h5>
+            <h6 class="card-subtitle mb-2 text-body-secondary">@@@Model.Username</h6>
+            @* <p class="card-text">
+                    <span id="friend-count">@Model.Friends.Items.Count</span>
+                    @(@Model.Friends.Items.Count == 1 ? "Amigo" : "Amigos")
+                </p> *@
+            <a asp-controller="Account" asp-action="Logout" class="no-style my-btn my-btn-outline-danger">Sair</a>
         </div>
-        <div class="w-100">
+
+        <nav class="h-100 w-100">
+            <ul class="sidebar w-100">
+                <li class="w-100">
+                    <button class="my-btn-sidebar w-100">
+                        Amigos
+                    </button>
+                </li>
+                <li class="w-100">
+                    <button class="my-btn-sidebar w-100">
+                        Conversas
+                    </button>
+                </li>
+                <li class="w-100">
+                    <button class="my-btn-sidebar w-100">
+                        Comunidades
+                    </button>
+                </li>
+            </ul>
+        </nav>
+
+        @* <div class="w-100">
             <h4>Amigos</h4>
             @await Html.PartialAsync("./Shared/_Friends", Model.Friends)
-        </div>
+            </div> *@
     </div>
 </div>

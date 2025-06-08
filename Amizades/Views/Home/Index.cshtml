@@ -1,64 +1,62 @@
 ﻿@model Amizades.ViewModels.HomeViewModel
 @{
     ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
 }
 
 @section Styles {
     <link href="~/css/Home/publications.css" rel="stylesheet" />
     <link href="~/css/Home/friends.css" rel="stylesheet" />
-    <link href="~/css/Home/user.css" rel="stylesheet" />
+    <link href="~/css/sidebar.css" rel="stylesheet" />
+}
+@section SidebarLeft {
+    <div class="w-100">
+        @await Html.PartialAsync("./Shared/_UserInfos", @Model.CurrentUser)
+    </div>
 }
 
-<div class="row">
-    <div class="col-4 h-100 col-xxl-3 d-flex justify-content-center">
-        <div class="w-100">
-            @await Html.PartialAsync("./Shared/_UserInfos", @Model.CurrentUser)
-        </div>
-    </div>
 
-    <div class="publication-body col-4 h-100 col-xxl-6">
-        <div>
-            <h2 class="publication-title">Publicações</h2>
-        </div>
-        <div class="mb-4">
-            @await Html.PartialAsync("./Shared/_CreatePublicationForm", @Model.CreatePublicationViewModel)
-        </div>
-        @* <button onclick="log(@userJson)">aqui</button> *@
-        @await Html.PartialAsync("./Shared/_PublicationList", @Model.Publications)
-    </div>
-
-    <div class="col-4 h-100 col-xxl-3 d-flex justify-content-center">
-        <div class="user-info-body w-100">
-            <div >
-                <ul class="nav justify-content-center" id="friendTabs" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="my-btn active" id="suggestions-tab" data-bs-toggle="tab" data-bs-target="#suggestions" type="button" role="tab" aria-controls="suggestions" aria-selected="true">
-                            Sugestão de amizades
-                        </button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="my-btn" id="requests-tab" data-bs-toggle="tab" data-bs-target="#requests" type="button" role="tab" aria-controls="requests" aria-selected="false">
-                            Pedidos de amizade
-                        </button>
-                    </li>
-                </ul>
-            </div>
-            <div class="card-body tab-content" id="friendTabsContent">
-                <div class="tab-pane fade show active" id="suggestions" role="tabpanel" aria-labelledby="suggestions-tab">
-                    @await Html.PartialAsync("./Shared/_SuggestedUsers", Model.SuggestedUsers)
-                </div>
-                <div class="tab-pane fade" id="requests" role="tabpanel" aria-labelledby="requests-tab">
-                    @await Html.PartialAsync("./Shared/_FriendRequests", Model.CurrentUser.ReceivedFriendRequests)
-                </div>
-            </div>
-        </div>
-    </div>
-    @section Scripts {
-        <script>
-            let friendshipType
-            function log(obj) {
-                console.log(obj)
-            }
-        </script>
-    }
+<div>
+    <h2 class="publication-title">Publicações</h2>
 </div>
+<div class="mb-4">
+    @await Html.PartialAsync("./Shared/_CreatePublicationForm", @Model.CreatePublicationViewModel)
+</div>
+@* <button onclick="log(@userJson)">aqui</button> *@
+@await Html.PartialAsync("./Shared/_PublicationList", @Model.Publications)
+
+
+@section SidebarRight {
+    <div class="sidebar-body w-100">
+        <div>
+            <ul class="nav justify-content-center" id="friendTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="my-btn active" id="suggestions-tab" data-bs-toggle="tab" data-bs-target="#suggestions" type="button" role="tab" aria-controls="suggestions" aria-selected="true">
+                        Sugestão de amizades
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="my-btn" id="requests-tab" data-bs-toggle="tab" data-bs-target="#requests" type="button" role="tab" aria-controls="requests" aria-selected="false">
+                        Pedidos de amizade
+                    </button>
+                </li>
+            </ul>
+        </div>
+        <div class="card-body tab-content" id="friendTabsContent">
+            <div class="tab-pane fade show active" id="suggestions" role="tabpanel" aria-labelledby="suggestions-tab">
+                @await Html.PartialAsync("./Shared/_SuggestedUsers", Model.SuggestedUsers)
+            </div>
+            <div class="tab-pane fade" id="requests" role="tabpanel" aria-labelledby="requests-tab">
+                @await Html.PartialAsync("./Shared/_FriendRequests", Model.CurrentUser.ReceivedFriendRequests)
+            </div>
+        </div>
+    </div>
+}
+@section Scripts {
+    <script>
+        let friendshipType
+        function log(obj) {
+            console.log(obj)
+        }
+    </script>
+}
