@@ -11,18 +11,7 @@
         <button id="load-more-SUGESTION" class="btn btn-link" onclick="loadMoreSugestions()">Ver mais</button>
     }
 </div>
-<script>
-    let suggestionPage = 1;
 
-    function loadMoreSugestions() {
-        $.get(`/api/Friendship/suggestion?page=${suggestionPage}`, (html) => {
-            suggestionPage++;
-            const $container = $('#suggestions-container');
-            $container.append(html);
-
-            if (html.includes('id="hide-load-more-SUGESTION"')) {
-                $('#load-more-SUGESTION').hide();
-            }
-        });
-    }
-</script>
+@section Scripts {
+    <script src="~/js/friendship/getSuggestion.js"></script>
+}

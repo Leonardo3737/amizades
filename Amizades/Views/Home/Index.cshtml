@@ -7,11 +7,10 @@
 @section Styles {
     <link href="~/css/Home/publications.css" rel="stylesheet" />
     <link href="~/css/Home/friends.css" rel="stylesheet" />
-    <link href="~/css/sidebar.css" rel="stylesheet" />
 }
 @section SidebarLeft {
     <div class="w-100">
-        @await Html.PartialAsync("./Shared/_UserInfos", @Model.CurrentUser)
+        @await Html.PartialAsync("~/Views/Shared/_Sidebar.cshtml", @Model.CurrentUser)
     </div>
 }
 
@@ -22,8 +21,17 @@
 <div class="mb-4">
     @await Html.PartialAsync("./Shared/_CreatePublicationForm", @Model.CreatePublicationViewModel)
 </div>
-@* <button onclick="log(@userJson)">aqui</button> *@
-@await Html.PartialAsync("./Shared/_PublicationList", @Model.Publications)
+<div class="d-flex flex-column align-items-center overflow-auto px-2" style="max-height: 600px;">
+    <div id="publications-container" class="d-flex gap-2 flex-column align-items-center w-100">
+        @await Html.PartialAsync("./Shared/_PublicationList", @Model.Publications.Items)
+    </div>
+    @if (Model.Publications.HasNextPage)
+    {
+        <button id="load-more-PUBLICATIONS" class="mt-2 my-btn my-btn-secondary" onclick="loadMorePublications()">
+            <span>Ver mais</span>
+        </button>
+    }
+</div>
 
 
 @section SidebarRight {
@@ -52,11 +60,7 @@
         </div>
     </div>
 }
+
 @section Scripts {
-    <script>
-        let friendshipType
-        function log(obj) {
-            console.log(obj)
-        }
-    </script>
+    <script src="~/js/publication/getPublications.js"></script>
 }

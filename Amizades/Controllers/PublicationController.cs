@@ -10,6 +10,7 @@ namespace Amizades.Controllers
 {
     public class PublicationController : Controller
     {
+        private int pageSize = 2;
         private AmizadesContext _context { get; set; }
         private PublicationService _publicationService { get; set; }
 
@@ -36,6 +37,16 @@ namespace Amizades.Controllers
             await _context.SaveChangesAsync();
 
             return RedirectToAction("Index", "Home");
+        }
+
+        public IActionResult PublicationsPartial(int page = 1)
+        {
+            var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+            var suggestions = _publicationService.GetPublicationWithPagination(userId, pageSize, page);
+
+            ViewData["HasNextPage"] = suggestions.HasNextPage;
+
+            return PartialView("~/Views/Home/Shared/_PublicationList.cshtml", suggestions.Items);
         }
     }
 }

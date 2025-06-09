@@ -1,0 +1,115 @@
+﻿.my-btn {
+    outline: none;
+    border: none;
+    box-shadow: none;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 10px;
+    transition: color 0.2s ease, background-color 0.2s ease;
+    background-color: transparent;
+}
+
+    .my-btn:enabled {
+        cursor: pointer;
+    }
+
+    .my-btn.active {
+        color: #1d3347;
+        border: 1px solid #1d3347;
+    }
+
+.my-btn-primary {
+    background-color: var(--color-primary);
+    color: var(--font-color-primary);
+}
+
+    .my-btn-primary:hover:enabled {
+        background-color: var(--color-primary-dark);
+    }
+
+.my-btn-outline-primary {
+    color: var(--color-primary);
+    border: 1px solid var(--color-primary);
+}
+
+    .my-btn-outline-primary:hover:enabled {
+        background-color: var(--color-primary-dark);
+    }
+
+.my-btn-secondary {
+    background-color: var(--color-secondary);
+    color: var(--font-color-secondary);
+}
+
+    .my-btn-secondary:hover:enabled {
+        background-color: var(--color-secondary-dark);
+    }
+
+.my-btn-outline-secondary {
+    color: var(--color-secondary-dark);
+    border: 1px solid var(--color-secondary);
+}
+
+    .my-btn-outline-secondary:hover:enabled {
+        background-color: var(--color-secondary-dark);
+    }
+
+.my-btn-tertiary {
+    background-color: var(--color-tertiary);
+    color: var(--font-color-tertiary);
+}
+
+    .my-btn-tertiary:hover:enabled {
+        background-color: var(--color-tertiary-dark);
+    }
+
+.my-btn-outline-tertiary {
+    color: var(--color-tertiary);
+    border: 1px solid var(--color-tertiary);
+    background-color: var(--color-background);
+}
+
+    .my-btn-outline-tertiary:hover:enabled {
+        color: var(--color-background);
+        border: 1px solid var(--color-background);
+        background-color: var(--color-tertiary);
+    }
+
+
+
+.my-btn-outline-danger {
+    border: 1px solid #CC3333;
+    color: #CC3333;
+}
+
+    .my-btn-outline-danger:hover:enabled {
+        background-color: #CC333320;
+    }
+
+.my-btn-link {
+    color: #1d3347;
+}
+
+    .my-btn-link:hover:enabled {
+        color: #13293d;
+    }
+
+.my-btn-sidebar {
+    outline: none;
+    border: none;
+    box-shadow: none;
+    font-weight: 600;
+    font-size: larger;
+    padding: 10px 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background-color: transparent;
+    color: var(--color-tertiary);
+    border-bottom: 1px solid #ffffff;
+}
+
+    .my-btn-sidebar:hover:enabled {
+        color: var(--color-background);
+        background-color: var(--color-tertiary);
+        border: 1px solid #ffffff;
+    }

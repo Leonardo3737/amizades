@@ -19,18 +19,7 @@
         <button id="load-more-REQUEST" class="btn btn-link" onclick="loadMoreRequests()">Ver mais</button>
     }
 </div>
-<script>
-    let friendRequestPage = 1;
 
-    function loadMoreRequests() {
-        $.get(`/api/Friendship/friend-request?page=${friendRequestPage}`, function(html) {
-            friendRequestPage++;
-            const $container = $('#friendsRequest-container');
-            $container.append(html);
-
-            if (html.includes('id="hide-load-more-REQUEST"')) {
-                $('#load-more-REQUEST').hide();
-            }
-        });
-    }
-</script>
+@section Scripts {
+    <script src="~/js/friendship/getFriendRequest.js"></script>
+}
